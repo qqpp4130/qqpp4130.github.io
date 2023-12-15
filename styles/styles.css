@@ -1,4 +1,4 @@
-/************* your name: 
+/************* your name: Raymond Chen
 
 INSTRUCTIONS:
 Comments starting with TO-DO have been included in this file to describe the needed styling: please translate these to the appropriate CSS declarations. 
@@ -24,8 +24,9 @@ body {
 
 /* TO DO: all elements with the .flex class applied are to be made into flex-box containers. */
 
-
- 
+.flex {
+    display: flex;
+}
 
 /************* site-wide text styling *************/
 
@@ -42,12 +43,40 @@ body {
         - change the cursor to pointer.
 */
 
-
-
-
-
-
-
+h1 {
+    font-size: 48px;
+    text-align: center;
+    line-height: 1;
+    align-items: center;
+    justify-content: center;
+    margin: 0;
+}
+h2{
+    font-size: 36px;
+    margin-bottom: 12px;
+}
+.large-text {
+    font-size: 24px;
+}
+.fake-button {
+    background-color: #E5AF42;
+    text-align: center;
+    line-height: 3;
+    border: 1px solid black;
+}
+.blue-hover:hover {
+    text-align: underline !important;
+    background-color: #4278e5 !important;
+    text-decoration: white !important;
+    cursor: pointer !important;
+}
+a {
+    text-decoration: none;
+    color: black;
+}
+main a:hover, footer a {
+    text-decoration: underline;
+}
 
 /************* header/footer styling *************/
 
@@ -59,10 +88,33 @@ body {
     - the footer will be 60px tall, have a font-weight of 200, and the text within will be centered vertically and horizontally.
 */
 
-
-
-
-
+header, footer{
+    color: #E5AF42;
+}
+header {
+    height: 150px;
+    margin-bottom: 25px;
+}
+header h1 {
+    justify-content: space-between;
+    align-items: center;
+    text-align: center;
+    line-height: 1;
+}
+header img {
+    width: 100px;
+    height: 100px;
+    margin-top: 25px;
+}
+footer {
+    height: 60px;
+    margin-top: 50px;
+    font-weight: 200;
+    text-align: center;
+    line-height: 1;
+    align-items: center;
+    justify-content: center;
+}
 
 /************* index page *************/
 
@@ -74,10 +126,30 @@ body {
     - the pair of fake-buttons will be centered on the page. HINT: can calculate the required margin to make them appear to be centered.
 */
 
-
-
-
-
+.index {
+    align-items: flex-start;
+}
+.index img {
+    width: 300px;
+    margin: 25px;
+    margin-bottom: 50px;
+}
+.index h2 {
+    line-height: 1;
+}
+.index p {
+    flex: 1;
+    margin-bottom: 12px;
+}
+.index .fake-button {
+    width: 250px;
+    justify-content: space-between;
+    align-items: center;
+    margin-right: 150px;
+}
+.index .fake-button:last-child {
+    margin-right: 0;
+}
 
 /************* bookings page *************/
 
@@ -93,17 +165,41 @@ body {
 
 */
 
-
-
-
-
-
-
-
-
-
-
-
+.booking-page {
+    width: 600px;
+    justify-content: center;
+    align-items: center;
+    font-size: 18px;
+}
+.day-selector {
+    list-style: none;
+    padding: 0;
+    margin-bottom: 12px;
+}
+.day-selector li {
+    display: inline-block;
+    margin-right: 20px;
+    width: 60px;
+}
+.day-selectors li:last-child {
+    margin-right: 0;
+}
+.small-button {
+    padding: 5px;
+}
+li, .small-button {
+    border: 1px black solid;
+}
+.top-margin {
+    margin-top: 24px;
+    margin-bottom: 12px;
+}
+#clear-days {
+    width: 200px;
+}
+.clicked {
+    color: #E5AF42 !important;
+}
 
 /************* contact page *************/
 /* TO DO:
@@ -114,6 +210,33 @@ body {
     - the edges of the button will line up exactly with the text-area element. HINT: time for some math!
 */
 
-
-
-
+.contact main {
+    height: 420px;
+    align-items: center;
+    justify-content: center;
+}
+.contact label {
+    width: 150px;
+    text-align: right;
+    margin-right: 24px;
+}
+.contact input {
+    font-family: inherit;
+    width: 300px;
+    line-height: 24px;
+    font-size: 16px;
+    margin-bottom: 24px;
+}
+.contact textarea {
+    font-family: inherit;
+    height: 150px;
+    line-height: 24px;
+    font-size: 16px;
+    margin-bottom: 24px;
+}
+.contact button {
+    font-family: inherit;
+    line-height: 24px;
+    font-size: 16px;
+    margin-bottom: 24px;
+}
