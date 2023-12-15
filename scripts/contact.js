@@ -2,3 +2,8 @@
 
 // hint: you can change the style of an element by modifying the value of that element's .style.fontSize, or by updating its .classList.
 
+const submitButton = document.querySelector("#submit-button");
+
+submitButton.addEventListener("click", function() {
+    document.querySelector("#contact-page").innerHTML = "<p style='font-size: 24px'>Thank you for your message</p>";
+});
