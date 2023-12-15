@@ -14,22 +14,24 @@ let cost = 0;
 function updateCost() {
     cost = dayCounter * rate;
     document.querySelector("#calculated-cost").innerHTML = cost;
-};
+}
 
 /********* colour change days of week *********/
 // when the day buttons are clicked, we will apply the "clicked" class to that element, and update any other relevant variables. Then, we can recalculate the total cost.
 // added challenge: don't update the dayCounter if the same day is clicked more than once. hint: .classList.contains() might be helpful here!
 
+function colourChange() {
+    if (this.classList.contains("clicked")) {
+        this.classList.remove("clicked");
+    } else {
+        this.classList.add("clicked");
+    }
+    dayCounter = document.querySelectorAll(".day-selector li.clicked").length;
+    updateCost();
+}
+
 for (var i = 0; i < dayContainer.length; i++) {
-    dayContainer[i].addEventListener("click", function() {
-        if (this.classList.contains("clicked")) {
-            this.classList.remove("clicked");;
-        } else {
-            this.classList.add("clicked");
-        }
-        dayCounter = document.querySelectorAll(".day-selector li.clicked").length;
-        updateCost()
-    });
+    dayContainer[i].addEventListener("click", colourChange());
 }
 
 /********* clear days *********/
@@ -40,7 +42,7 @@ clearButton.addEventListener("click", function() {
         dayContainer[i].classList.remove("clicked");
     }
     dayCounter = 0;
-    updateCost()
+    updateCost();
 });
 
 /********* change rate *********/
@@ -50,8 +52,8 @@ halfDayButton.addEventListener("click", function() {
     rate = halfCost;
     this.classList.add("clicked");
     fullDayButton.classList.remove("clicked");
-    updateCost()
-})
+    updateCost();
+});
 
 // when the full-day button is clicked, the daily rate is set back to $35, the clicked class is added to "full" and removed from "half", and the total cost is recalculated.
 
@@ -59,8 +61,8 @@ fullDayButton.addEventListener("click", function() {
     rate = fullCost;
     this.classList.add("clicked");
     halfDayButton.classList.remove("clicked");
-    updateCost()
-})
+    updateCost();
+});
 
 /********* calculate *********/
 // when a calculation is needed, set the innerHTML of the calculated-cost element to the appropriate value
